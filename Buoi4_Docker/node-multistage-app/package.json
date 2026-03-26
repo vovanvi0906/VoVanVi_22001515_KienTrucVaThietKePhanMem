@@ -1,0 +1,10 @@
+{
+  "name": "node-multistage-app",
+  "version": "1.0.0",
+  "description": "Node.js app using multi-stage Docker build",
+  "main": "app.js",
+  "scripts": {
+    "build": "echo Build completed",
+    "start": "node app.js"
+  }
+}
