@@ -1,0 +1,94 @@
+:root {
+  color-scheme: dark;
+  --bg: #07111f;
+  --text: #d9e4f1;
+  --muted: #93a5bc;
+  --heading: #fff5e8;
+  --heading-soft: #f5dcc3;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #ffb347;
+  --accent-strong: #ff6b35;
+  --accent-soft: #ffd79a;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  --sans: 'Aptos', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --display: 'Georgia', 'Times New Roman', serif;
+  --mono: 'Consolas', 'Courier New', monospace;
+
+  font-family: var(--sans);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 179, 71, 0.14), transparent 32%),
+    radial-gradient(circle at top right, rgba(255, 107, 53, 0.14), transparent 24%),
+    linear-gradient(180deg, #08101c 0%, var(--bg) 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 18px,
+      rgba(255, 255, 255, 0.015) 18px,
+      rgba(255, 255, 255, 0.015) 19px
+    );
+  pointer-events: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+dt,
+dd {
+  margin: 0;
+}
+
+::selection {
+  background: rgba(255, 179, 71, 0.28);
+  color: var(--heading);
+}
