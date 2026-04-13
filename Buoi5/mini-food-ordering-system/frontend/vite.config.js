@@ -7,6 +7,9 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     server: {
+      host: "0.0.0.0",
+      port: 5173,
+      strictPort: true,
       proxy: {
         "/food-api": {
           target: env.VITE_FOOD_API_TARGET || "http://localhost:8082",
@@ -29,6 +32,11 @@ export default defineConfig(({ mode }) => {
           rewrite: (path) => path.replace(/^\/user-api/, ""),
         },
       },
+    },
+    preview: {
+      host: "0.0.0.0",
+      port: 4173,
+      strictPort: true,
     },
   };
 });

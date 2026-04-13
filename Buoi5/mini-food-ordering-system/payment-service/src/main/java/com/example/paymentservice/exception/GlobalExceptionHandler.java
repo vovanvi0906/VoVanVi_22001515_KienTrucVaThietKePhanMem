@@ -78,7 +78,7 @@ public class GlobalExceptionHandler {
 
     private String buildInvalidFormatMessage(InvalidFormatException ex) {
         if (ex.getTargetType() != null && ex.getTargetType().isEnum()) {
-            String fieldName = ex.getPath().isEmpty() ? "request field" : ex.getPath().getLast().getFieldName();
+            String fieldName = ex.getPath().isEmpty() ? "request field" : getLastFieldName(ex);
             String acceptedValues = Arrays.stream(ex.getTargetType().getEnumConstants())
                     .map(constant -> ((Enum<?>) constant).name())
                     .collect(Collectors.joining(", "));
@@ -87,10 +87,15 @@ public class GlobalExceptionHandler {
         }
 
         if (!ex.getPath().isEmpty()) {
-            return "Invalid value for field: " + ex.getPath().getLast().getFieldName();
+            return "Invalid value for field: " + getLastFieldName(ex);
         }
 
         return "Invalid request body";
+    }
+
+    private String getLastFieldName(InvalidFormatException ex) {
+        int lastIndex = ex.getPath().size() - 1;
+        return ex.getPath().get(lastIndex).getFieldName();
     }
 
     private ResponseEntity<ErrorResponse> buildErrorResponse(HttpStatus status, String message, String path) {

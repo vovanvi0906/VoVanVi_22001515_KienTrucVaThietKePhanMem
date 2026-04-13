@@ -70,7 +70,8 @@ public class GlobalExceptionHandler {
                         .collect(Collectors.joining(", "));
                 message = "Invalid status value. Accepted values: " + acceptedValues;
             } else if (!invalidFormatException.getPath().isEmpty()) {
-                String fieldName = invalidFormatException.getPath().getLast().getFieldName();
+                int lastIndex = invalidFormatException.getPath().size() - 1;
+                String fieldName = invalidFormatException.getPath().get(lastIndex).getFieldName();
                 message = "Invalid value for field: " + fieldName;
             }
         }
